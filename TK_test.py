@@ -1,10 +1,18 @@
 from tkinter import *
 from tkinter import ttk
 
-# rootという変数にTkというclassのインスタンスを格納
 root=Tk()
-# windowのtitleを設定
 root.title("Test")
+
+frame=ttk.Frame(root, padding=100)
+frame.pack(fill="both", expand=True)
+
+apple_image = PhotoImage(file="apple.png")
+label = ttk.Label(frame, image=apple_image)
+label.pack(padx=10, pady=10)
+
+label2=ttk.Label(frame, text="こんにちは！", foreground="black")
+label2.pack(padx=10, pady=10)
 
 
 root.mainloop()
