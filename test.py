@@ -1,12 +1,16 @@
-import tkinter 
+import tkinter as tk
 
-root=tkinter.Tk()
+root=tk.Tk()
 root.title("Test")
 
-frame=tkinter.Frame(root, width=100, height=100)
+frame= tk.Frame(root, width=100, height=100)
 frame.pack(fill="both", expand=True)
 
-label=tkinter.Label(frame, text="こんにちは！")
-label.pack(padx=100, pady=100)
+apple_image = tk.PhotoImage(file="apple.png")
+label = tk.Label(frame, image=apple_image)
+label.pack(padx=10, pady=10)
+
+label=tk.Label(frame, text="これはリンゴです")
+label.pack(padx=10, pady=10)
 
 root.mainloop()
