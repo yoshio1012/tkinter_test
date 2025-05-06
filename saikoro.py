@@ -11,8 +11,10 @@ class dice:
         # Create frames
         self_frame = ttk.Frame(app, width=200, height=100)
         enemy_frame= ttk.Frame(app, width=200, height=100)
-        self_dice_frame = ttk.Frame(self_frame, width=200, height=100)
+        self_dice_frame = ttk.Frame(self_frame, width=200, height=100,)
+        self_dice_frame.grid_propagate(False)
         enemy_dice_frame = ttk.Frame(enemy_frame, width=200, height=100)
+        enemy_dice_frame.grid_propagate(False)
         button_frame = ttk.Frame(app, width=400, height=100)
         result_frame = ttk.Frame(app, width=200, height=100)
         winrate_frame = ttk.Frame(app, width=200, height=100)
@@ -87,8 +89,8 @@ class dice:
             self_dice_label = ttk.Label(self_dice_frame, image=self_dice_image)
             enemy_dice_label = ttk.Label(enemy_dice_frame, image=enemy_dice_image)
 
-            self_dice_label.grid(row=0, column=0)
-            enemy_dice_label.grid(row=0, column=0)
+            self_dice_label.grid(row=0, column=0, sticky="nsew")
+            enemy_dice_label.grid(row=0, column=0, sticky="nsew")
 
             # Determine winner
             if self_dice > enemy_dice:
