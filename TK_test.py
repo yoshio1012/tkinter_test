@@ -21,7 +21,7 @@ button1.pack(padx=10, pady=10)
 
 greet=StringVar()
 greet.set("banana")
-label3 = ttk.Label(frame, textvariable=greet, foreground="blue", background="white", font = ('MS ゴシック', 12))
+label3 = ttk.Label(frame, textvariable=greet, foreground="blue", background="white")
 label3.pack(padx=10, pady=10)
 
 root.mainloop()
