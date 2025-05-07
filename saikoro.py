@@ -31,12 +31,14 @@ class dice:
         # Create labels and layout
         self_label = ttk.Label(self_frame, text="あなたのサイコロ")
         enemy_label = ttk.Label(enemy_frame, text="相手のサイコロ")
+        winrate_frame_label = ttk.Label(winrate_frame, text="勝率を出したかった")
         self_label.grid(row=0, column=0)
         enemy_label.grid(row=0, column=0)
+        winrate_frame_label.grid(row=0, column=0)
 
         # Create buttons and layout
         start_button = ttk.Button(button_frame, text="サイコロを振る")
-        start_button.grid(row=0, column=0)
+        start_button.grid(row=0, column=0, sticky="nsew")
         start_button.bind("<Button-1>", lambda event: roll_dice())
 
         #result label and layout
