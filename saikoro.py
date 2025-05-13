@@ -3,6 +3,10 @@ from tkinter import ttk
 from PIL import ImageTk, Image
 import random
 
+
+N = 0
+n = 0
+
 class dice:
     def __init__(self, app):
         app.title("サイコロ対決")
@@ -31,7 +35,9 @@ class dice:
         # Create labels and layout
         self_label = ttk.Label(self_frame, text="あなたのサイコロ")
         enemy_label = ttk.Label(enemy_frame, text="相手のサイコロ")
-        winrate_frame_label = ttk.Label(winrate_frame, text="勝率を出したかった")
+        winrate=tk.StringVar()
+        winrate.set("勝率: 0.00%")
+        winrate_frame_label = ttk.Label(winrate_frame, textvariable=winrate) 
         self_label.grid(row=0, column=0)
         enemy_label.grid(row=0, column=0)
         winrate_frame_label.grid(row=0, column=0)
@@ -58,6 +64,8 @@ class dice:
 
 
         def roll_dice():
+            global N, n
+            N += 1
             self_dice = random.randint(1, 6)
             enemy_dice = random.randint(1, 6)
 
@@ -97,10 +105,16 @@ class dice:
             # Determine winner
             if self_dice > enemy_dice:
                 result.set("あなたの勝ち！")
+                n += 1
             elif self_dice < enemy_dice:
                 result.set("あなたの負け！")   
             else:
                 result.set("引き分け！")
+
+            # Update winrate
+            winrate_Percentage = (n / N) * 100 
+            winrate.set(f"勝率: {winrate_Percentage:.2f}%")
+
 
 
 
